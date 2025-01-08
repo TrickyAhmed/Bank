@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients Management</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+
+    <h1 class="text-center">Gestion des clients</h1>
+
+    <div class="card my-4">
+        <div class="card-header">
+            <h4>Ajouter un nouveau client</h4>
+
+        </div>
+		
+        <div class="card-body">
+            <form id="addClientForm" th:action="@{save}" method="post">
+                <div class="row g-3">
+                    <div class="col-md-4">
+
+                        <label for="clientName" class="form-label">Nom et Prénom</label>
+                        <input type="text" class="form-control" name ="Name" id="clientName" placeholder="Entrer un nom" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="clientEmail" class="form-label">Adresse Email</label>
+                        <input type="email" class="form-control" name="Email" id="clientEmail" placeholder="Entrer une adresse e-mail" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="clientPhone" class="form-label">Numéro de téléphone</label>
+                        <input type="text" class="form-control" name="Phone" id="clientPhone" placeholder="Entrer un numéro de téléphone" required>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary mt-3" onclick="saveClient()">Ajouter client</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Section: Clients List -->
+    <div class="card">
+        <div class="card-header">
+            <h4>Liste des clients actifs</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>E-mail</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="clientsTableBody">
+                <!-- Thymeleaf iteration to display clients dynamically -->
+                <tr th:id="'row-' + ${client.id}" th:each="client : ${Clients}">
+                    <td th:text="${client.id}"></td>
+                    <td th:text="${client.name}"></td>
+                    <td th:text="${client.email}"></td>
+                    <td th:text="${client.phoneNumber}"></td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" th:onclick="'showEditAlert(' + ${client.id} + ')'" >Metter a jour</button>
+                        <button class="btn btn-danger btn-sm" th:onclick="'deleteClient(' + ${client.id} + ', event)'">Supprimer</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="alert alert-danger mt-4" role="alert">
+        Attention : La suppression d'un client supprimera également tous ses comptes associés !
+		<a href="http://localhost:8085/comptes/">Allez vers la page des comptes</a>
+		<a href="/logout">Déconnexion</a>
+    </div>
+
+</div>
+
+
+<!-- Link to external clients.js -->
+<!-- Bootstrap Bundle, SweetAlert2, and jQuery Scripts -->
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/sweetalert.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+<link rel="stylesheet" href="/css/Style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="../js/clients.js"></script>
+</body>
+</html>

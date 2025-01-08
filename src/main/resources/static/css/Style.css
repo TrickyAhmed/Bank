@@ -1,0 +1,377 @@
+/* Body and General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #0056b3;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* Form Elements */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+/* Button Styles */
+.btn {
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 12px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    padding: 15px 20px;
+    text-align: center;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.table td {
+    background-color: #f9f9f9;
+    border-top: 1px solid #e1e1e1;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f7ff;
+    transform: scale(1.01);
+}
+
+.table-container {
+    margin-top: 50px;
+}
+
+/* Hover and Focus States */
+.table td:hover {
+    background-color: #e9ecef;
+}
+
+.table th:hover {
+    cursor: pointer;
+    background-color: #0056b3;
+}
+
+.table-container .btn-sm {
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .card-body {
+        padding: 20px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .table th, .table td {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-header {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 0 10px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        padding: 10px;
+    }
+
+    .table-container {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .table-container {
+        margin-top: 20px;
+    }
+}
+
+/* Animation and Transition */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInUp {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.card, .table, .form-control {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-bottom: 2px solid #0056b3;
+}
+
+.modal-footer {
+    border-top: 2px solid #e1e1e1;
+}
+
+/* Tooltip Styles */
+.tooltip-inner {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Loading Spinner */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.25em;
+}
+
+/* Alert Styles */
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.alert-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+/* Pagination */
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .page-link {
+    border-radius: 50%;
+    padding: 8px 15px;
+    font-size: 1rem;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination .page-link:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #343a40;
+    padding: 15px;
+    color: white;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #007bff;
+}
+
+.sidebar .active {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    color: #333;
+    margin-top: 50px;
+}
+
+
+
